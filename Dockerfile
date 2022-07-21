@@ -1,4 +1,4 @@
-FROM docker-registry-idc01-sz.cloudtogo.cn/cloudtogo/openjdk:11.0.12-jre-slim-buster
+FROM yaolianhua/java11:tomcat9.0-openjdk11
 WORKDIR /devops
 COPY devops.jar /devops
 ENV JAVA_OPTS="-Xms64m -Xmx128m"
