@@ -1,4 +1,4 @@
-FROM yaolianhua/java11:tomcat9.0-openjdk11
+FROM 192.168.146.128:5000/base/java11:tomcat9.0-openjdk11
 WORKDIR /devops
 COPY devops.jar /devops
 ENV JAVA_OPTS="-Xms64m -Xmx128m"
