@@ -119,7 +119,7 @@
   </dependencies>
 
   <build>
-    <finalName>devops</finalName>
+    <finalName>thymeleaf-fragments</finalName>
     <resources>
       <resource>
         <directory>${project.basedir}/src/main/resources</directory>
