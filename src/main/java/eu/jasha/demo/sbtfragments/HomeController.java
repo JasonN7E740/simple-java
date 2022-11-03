@@ -37,7 +37,6 @@ public class HomeController {
 
   @GetMapping(value = "")
   public String getHome() {
-    Connection connection = null;
     DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
     driverManagerDataSource.setUsername("root");
     driverManagerDataSource.setPassword(mysql.getPassword());
@@ -45,23 +44,14 @@ public class HomeController {
     driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 
     try {
-      connection = DataSourceUtils.getConnection(driverManagerDataSource);
+      DataSourceUtils.getConnection(driverManagerDataSource);
     } catch (CannotGetJdbcConnectionException e) {
-      //
+      log.error("检测mysql环境变量注入：没有任何业务上的意义，请忽略掉这个信息 \n mysql.host='{}', mysql.port= '{}', mysql.password='{}'", mysql.getHost(), mysql.getPort(), mysql.getPassword());
     }
-    if (Objects.isNull(connection)){
-      return "pages/index-no-db";
-    }
-    else {
-      return VIEW_INDEX;
-    }
+    return VIEW_INDEX;
   }
 
   @Resource
   private MysqlProperties mysql;
 
-  @PostConstruct
-  void print(){
-    log.info("【mysql配置】mysql.host='{}', mysql.port= '{}', mysql.password='{}'",mysql.getHost(),mysql.getPort(), mysql.getPassword());
-  }
 }
