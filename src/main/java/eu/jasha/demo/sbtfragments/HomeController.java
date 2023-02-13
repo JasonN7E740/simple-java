@@ -37,6 +37,9 @@ public class HomeController {
 
   @GetMapping(value = "")
   public String getHome() {
+    if (Objects.isNull(mysql)) {
+      mysql = new MysqlProperties();
+    }
     DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
     driverManagerDataSource.setUsername("root");
     driverManagerDataSource.setPassword(mysql.getPassword());
