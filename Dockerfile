@@ -1,6 +1,6 @@
 FROM yaolianhua/java11-runtime:latest
 WORKDIR /devops
-COPY devops.jar /devops
+COPY thymeleaf-fragments.jar /devops
 ENV JAVA_OPTS="-Xms64m -Xmx128m"
 EXPOSE 8080
 
