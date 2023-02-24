@@ -195,4 +195,33 @@
     </plugins>
   </build>
 
+  <distributionManagement>
+    <repository>
+      <id>cloudtogo-nexus</id>
+      <name>CloudToGo Nexus Releases</name>
+      <url>http://nexus.cloudtogo.local/repository/maven-releases</url>
+      <layout>default</layout>
+    </repository>
+    <snapshotRepository>
+      <id>cloudtogo-nexus</id>
+      <name>CloudToGo Nexus Snapshots</name>
+      <url>http://nexus.cloudtogo.local/repository/maven-snapshots/</url>
+      <layout>default</layout>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>cloudtogo-nexus</id>
+      <name>CloudToGo Nexus Public</name>
+      <url>http://nexus.cloudtogo.local/repository/maven-public</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>cloudtogo-nexus</id>
+      <name>CloudToGo Nexus Public</name>
+      <url>http://nexus.cloudtogo.local/repository/maven-public</url>
+    </pluginRepository>
+  </pluginRepositories>
 </project>
